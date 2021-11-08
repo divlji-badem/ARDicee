@@ -80,10 +80,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
     }
     
-
-    
     func rollAll() {
-        if !diceArray .isEmpty {
+        if !diceArray.isEmpty {
             for dice in diceArray {
                 roll(dice: dice)
             }
@@ -107,6 +105,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         rollAll()
     }
     
+    @IBAction func removeAllDice(_ sender: UIBarButtonItem) {
+        if !diceArray.isEmpty{
+            for dice in diceArray {
+                dice.removeFromParentNode()
+            }
+        }
+    }
     // roll on shake
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         rollAll()
